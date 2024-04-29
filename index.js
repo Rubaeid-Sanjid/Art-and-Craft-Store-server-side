@@ -38,6 +38,15 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     })
+
+    app.get('/craftProduct/:email', async(req, res)=>{
+      const userEmail = req.params.email;
+      const cursor = productsCollection.find({userEmail});
+      const result = await cursor.toArray();
+      res.send(result);
+    })
+
+    
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
     // console.log("Pinged your deployment. You successfully connected to MongoDB!");
