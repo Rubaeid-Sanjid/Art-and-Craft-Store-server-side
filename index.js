@@ -46,6 +46,12 @@ async function run() {
       const result = await productsCollection.findOne(query);
       res.send(result);
     });
+    app.get("/craftProduct/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await productsCollection.findOne(query);
+      res.send(result);
+    });
 
     app.get("/craftProduct/email/:email", async (req, res) => {
       const userEmail = req.params.email;
